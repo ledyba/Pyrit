@@ -466,14 +466,14 @@ class CPyrit(object):
 
 
         # CPUs
-        for i in xrange(util.ncpus):
+        for i in range(util.ncpus):
             self.cores.append(CPUCore(queue=self))
 
 
         # Network
 
         if config.cfg['rpc_server'] == 'true':
-            for port in xrange(17935, 18000):
+            for port in range(17935, 18000):
                 try:
                     ncore = NetworkCore(queue=self, port=port)
                 except socket.error:
@@ -493,7 +493,6 @@ class CPyrit(object):
                 self.ncore_uuid = None
         else:
             self.ncore_uuid = None
-
 
         for core in self.cores:
             self.all.append(core)
